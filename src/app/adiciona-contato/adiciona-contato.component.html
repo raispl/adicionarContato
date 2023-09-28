@@ -1,0 +1,50 @@
+<!-- adiciona-contato.component.html -->
+<div class="container">
+  <h2 class="mt-5 mb-3">Adicionar Contato</h2>
+  <form>
+    <div class="mb-3">
+      <label for="nome" class="form-label">Nome:</label>
+      <input type="text" class="form-control" id="nome" [(ngModel)]="novoContato.nome" name="nome" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="telefone" class="form-label">Telefone:</label>
+      <input type="text" class="form-control" id="telefone" [(ngModel)]="novoContato.telefone" name="telefone" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      <input type="text" class="form-control" id="email" [(ngModel)]="novoContato.email" name="email" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="aniversario" class="form-label">Aniversário:</label>
+      <input type="text" class="form-control" id="aniversario" placeholder="Digite no formato _ /_ /_ " [(ngModel)]="novoContato.aniversario" name="aniversario" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="tipo" class="form-label">Tipo do contato:</label>
+      <select class="form-select" id="tipo" [(ngModel)]="novoContato.tipo" name="tipo">
+        <option value="Amigo">Amigo</option>
+        <option value="Família">Família</option>
+        <option value="Trabalho">Trabalho</option>
+        <!-- Adicione outras opções de acordo com sua necessidade -->
+      </select>
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)="adicionarContato()">Adicionar</button>
+  </form>
+
+  <hr>
+
+  <h2 class="mt-4">Lista de Contatos</h2>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let contato of contatos">
+      <strong>Nome:</strong> {{ contato.nome }} <br>
+      <strong>Telefone:</strong> {{ contato.telefone }} <br>
+      <strong>Email:</strong> {{ contato.email }} <br>
+      <strong>Aniversário:</strong> {{ contato.aniversario }} <br>
+      <strong>Tipo do contato:</strong> {{ contato.tipo }}
+    </li>
+  </ul>
+</div>
